@@ -1,0 +1,57 @@
+<ion-header>
+  <ion-navbar color='secondary'>
+
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+
+    <ion-title text-center>Welcome {{this.userName}}!</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)='signOut()'>
+        <ion-icon name="log-out"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+  <ion-content class="home">
+ 
+    <ion-grid>
+ 
+      <ion-row class="events" style="background-image:url(assets/home-events.jpg)" (click)='goToEvents()'>
+        <ion-col><h2>Events</h2></ion-col>
+      </ion-row>
+ 
+      <ion-row class="services" style="background-image:url(assets/home-services.jpg)" (click)=' goToServices()'>
+        <ion-col><h2>Services</h2></ion-col>
+      </ion-row>
+ 
+      <ion-row class="presenters" style="background-image:url(assets/home-presenter.jpg)"(click)='goToPresenters()'>
+        <ion-col><h2>Presenters</h2></ion-col>
+      </ion-row>
+ 
+    </ion-grid>
+
+   <!-- <ion-grid>
+      <ion-row>
+        <ion-col>
+          <div class='events' (click)='goToEvents()'>
+            <span>Chats & Workshops</span>
+          </div>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <div class='services' (click)=' goToServices()'>
+            <span>Services</span>
+          </div>
+        </ion-col>
+        <ion-col>
+          <div class='presenters' (click)='goToPresenters()'>
+            <span>Presenters</span>
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>-->
+
+  </ion-content>

@@ -1,0 +1,113 @@
+<ion-header>
+  <ion-navbar color='secondary'>
+
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+
+    <ion-title text-center>Schedule</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)='signOut()'>
+        <ion-icon name="log-out"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+
+  <img src="/assets/page-events.jpg" />
+
+  <div padding>
+    <ion-segment [(ngModel)]="eventDate">
+      <ion-segment-button value="thurs">
+        Thursday
+      </ion-segment-button>
+      <ion-segment-button value="fri">
+        Friday
+      </ion-segment-button>
+      <ion-segment-button value="sat">
+        Saturday
+      </ion-segment-button>
+    </ion-segment>
+  </div>
+
+  <div [ngSwitch]="eventDate">
+
+    <ion-list *ngSwitchCase="'thurs'">
+      <ion-item-sliding *ngFor="let eventThursday of eventsThursday | async">
+        <button ion-item class="text" (click)="getDetails(eventThursday)">
+          <ion-icon *ngIf="eventThursday.type=='registration'" name="briefcase" item-left></ion-icon>
+          <ion-icon *ngIf="eventThursday.type=='party'" name="wine" color='primary' item-left></ion-icon>
+          <ion-icon *ngIf="eventThursday.type=='chat'" name="chatbubbles" color="highlight" item-left></ion-icon>
+          <ion-icon *ngIf="eventThursday.type=='workshop'" name="school" color="danger" item-left></ion-icon>
+          <h2>{{eventThursday.name}}</h2>
+          <p>When? {{eventThursday.time}}</p>
+          <p>Where? {{eventThursday.location}}</p>
+          <p *ngIf="eventThursday.presenter">Presenter: {{eventThursday.presenter}}</p>
+        </button>
+        <ion-item-options side="right">
+          <button ion-button color="primary" (click)="eventLike(eventThursday,04)">
+        <ion-icon name="thumbs-up"></ion-icon>
+        I'm Going!
+        </button>
+        </ion-item-options>
+      </ion-item-sliding>
+    </ion-list>
+
+    <ion-list *ngSwitchCase="'fri'">
+      <ion-item-sliding *ngFor="let eventFriday of eventsFriday | async">
+        <button ion-item class="text" (click)="getDetails(eventFriday)">
+       <ion-icon *ngIf="eventFriday.type=='registration'" name="briefcase" item-left></ion-icon>
+      <ion-icon *ngIf="eventFriday.type=='party'" name="wine" color='primary' item-left></ion-icon>
+      <ion-icon *ngIf="eventFriday.type=='chat'" name="chatbubbles" color="highlight" item-left></ion-icon>
+      <ion-icon *ngIf="eventFriday.type=='workshop'" name="school" color="danger" item-left></ion-icon>
+			<h2>{{eventFriday.name}}</h2>
+      <p>When? {{eventFriday.time}}</p>
+      <p>Where? {{eventFriday.location}}</p>
+      <p *ngIf="eventFriday.presenter">Presenter: {{eventFriday.presenter}}</p>
+		</button>
+        <ion-item-options side="right">
+          <button ion-button color="primary" (click)="eventLike(eventFriday,05)">
+        <ion-icon name="thumbs-up"></ion-icon>
+        I'm Going!
+        </button>
+        </ion-item-options>
+      </ion-item-sliding>
+    </ion-list>
+
+    <ion-list *ngSwitchCase="'sat'">
+       <ion-item-sliding *ngFor="let eventSaturday of eventsSaturday | async">
+      <button ion-item class="text" (click)="getDetails(eventSaturday)">
+      <ion-icon *ngIf="eventSaturday.type=='registration'" name="briefcase" item-left></ion-icon>
+      <ion-icon *ngIf="eventSaturday.type=='party'" name="wine" color='primary' item-left></ion-icon>
+      <ion-icon *ngIf="eventSaturday.type=='chat'" name="chatbubbles" color="highlight" item-left></ion-icon>
+      <ion-icon *ngIf="eventSaturday.type=='workshop'" name="school" color="danger" item-left></ion-icon>
+			<h2>{{eventSaturday.name}}</h2>
+      <p>When? {{eventSaturday.time}}</p>
+      <p>Where? {{eventSaturday.location}}</p>
+      <p *ngIf="eventSaturday.presenter">Presenter: {{eventSaturday.presenter}}</p>
+		</button>
+    <ion-item-options side="right">
+          <button ion-button color="primary" (click)="eventLike(eventSaturday,06)">
+        <ion-icon name="thumbs-up"></ion-icon>
+        I'm Going!
+        </button>
+        </ion-item-options>
+      </ion-item-sliding>
+    </ion-list>
+  </div>
+
+</ion-content>
+
+<ion-footer no-border>
+  <ion-toolbar color='secondary'>
+    <ion-title text-center>SOP Productions 2018</ion-title>
+    <ion-buttons start>
+      <button ion-button icon-only (click)='goToHome()'>
+        <ion-icon name="home"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-footer>

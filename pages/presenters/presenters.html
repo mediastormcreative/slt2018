@@ -1,0 +1,43 @@
+<ion-header>
+  <ion-navbar color='secondary'>
+
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+
+    <ion-title text-center>Presenters</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)='signOut()'>
+        <ion-icon name="log-out"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+
+  <img src="/assets/page-presenter3.jpg" />
+
+  <ion-list>
+  <button ion-item *ngFor="let presenter of presenters | async" (click)="getDetails(presenter)">
+    <ion-avatar item-start *ngIf='presenter.image'>
+      <img [src]="presenter.image" title="presenter.name" />
+    </ion-avatar>
+     <ion-icon  *ngIf='presenter.image == ""' name="person" color="danger" icon-left></ion-icon>   {{ presenter.name }}
+  </button>  
+</ion-list>
+
+</ion-content>
+
+<ion-footer no-border>
+   <ion-toolbar color='secondary'>
+     <ion-title text-center>SOP Productions 2018</ion-title>
+    <ion-buttons start>
+      <button ion-button icon-only (click)='goToHome()'>
+        <ion-icon name="home"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-footer>
+

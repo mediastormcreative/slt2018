@@ -1,0 +1,51 @@
+<ion-header>
+  <ion-navbar color='secondary'>
+    <ion-title>{{this.name}}</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)='closeModal()'><ion-icon name='close'></ion-icon></button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding class='detail-card'>
+
+  <ion-card>
+
+    <ion-item>
+      <ion-avatar item-left *ngIf='this.image'>
+        <img [src]='this.image' [title]='this.name' />
+      </ion-avatar>
+      <ion-card-title>{{this.name}}</ion-card-title>
+      <p>{{this.date}}</p>
+      <p>{{this.time}}</p>
+      <p *ngIf='this.location'>In the {{this.location}}</p>
+      <p *ngIf='this.presenter'>Presenter: {{this.presenter}}</p>
+    </ion-item>
+
+    <ion-card-content>
+      <p>{{this.description}}</p>
+      <p *ngIf='this.price == "" && this.type != "presenter"'>This is Complimentary!</p>
+      <p>{{cost ? '$' : ''}} {{this.price}}</p>
+
+      <hr />
+
+      <p *ngIf='this.type == "workshop" || this.type=="chat" || this.type=="party"'><strong>Number of people attending: {{ this.likes }}</strong></p>
+
+      <hr />
+
+      <ion-list text-wrap *ngIf='this.type == "presenter"'>
+        <ion-item *ngFor="let event of eventsFriday | async">
+          <h3>{{ event.name }}</h3>
+          <p>{{ event.description }}</p>
+        </ion-item>
+        <ion-item text-wrap *ngFor="let event of eventsSaturday | async">
+          <h3>{{ event.name }}</h3>
+          <p>{{ event.description }}</p>
+        </ion-item>
+      </ion-list>
+
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>

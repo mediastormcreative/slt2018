@@ -1,0 +1,46 @@
+page-home {
+
+    .home {
+ 
+    scroll-content {
+        display: flex;
+        flex-direction: column;
+    }
+ 
+    ion-grid {
+        padding: 0;
+        height: 100%;
+    }
+ 
+    ion-row {
+        flex: 1;
+        background-repeat:no-repeat;
+        ion-col {
+            width: 100%;
+            padding: 5px;
+            background-color: white;
+            height: 35px;
+            opacity: .7;
+            font-size: 2em;
+            h2 {
+                margin-top:0;
+                color: #c75500;
+            }
+        }
+    }
+
+    .events {
+        background-position: center center;
+    }
+
+    .services {
+        background-position: top left;
+    }
+
+    .presenters {
+        background-position: top left;
+    }
+ 
+}
+ 
+}

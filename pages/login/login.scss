@@ -1,0 +1,33 @@
+page-login {
+
+    ion-slide {
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: top center;
+        div {
+            width: 100%;
+            padding: 5px;
+            background-color: rgba(255,255,255,0.7);
+        }
+    }
+
+    .slide01 {
+        background-image: url(assets/slide01.jpg);
+    }
+
+    .slide02 {
+        background-image: url(assets/slide02.jpg);
+    }
+
+    .slide03 {
+        background-image: url(assets/slide03.jpg);
+    }
+
+    .loginButtons {
+        position: absolute;
+        bottom: 30px;
+        width: 100%;
+        z-index: 1;
+    }
+
+}
