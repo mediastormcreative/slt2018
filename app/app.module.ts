@@ -26,12 +26,12 @@ const cloudSettings: CloudSettings = {
 };
 
 export const firebaseConfig = {
-  apiKey: "AIzaSyBjac05lCcTSKxHZyUR3F5S3qXRoaWmcAE",
-  authDomain: "summer-lifestyle-takeover.firebaseapp.com",
-  databaseURL: "https://summer-lifestyle-takeover.firebaseio.com",
-  projectId: "summer-lifestyle-takeover",
-  storageBucket: "summer-lifestyle-takeover.appspot.com",
-  messagingSenderId: "165893095945"
+  apiKey: "",
+  authDomain: "",
+  databaseURL: "",
+  projectId: "",
+  storageBucket: "",
+  messagingSenderId: ""
 };
 
 @NgModule({
