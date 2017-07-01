@@ -35,13 +35,13 @@
       <hr />
 
       <ion-list text-wrap *ngIf='this.type == "presenter"'>
-        <ion-item *ngFor="let event of eventsFriday | async">
-          <h3>{{ event.name }}</h3>
-          <p>{{ event.description }}</p>
+        <ion-item *ngFor="let eventFriday of eventsFriday | async" [hidden]="filter(eventFriday,this.name)">
+          <h3>{{ eventFriday.name }}</h3>
+          <p>{{ eventFriday.description }}</p>
         </ion-item>
-        <ion-item text-wrap *ngFor="let event of eventsSaturday | async">
-          <h3>{{ event.name }}</h3>
-          <p>{{ event.description }}</p>
+        <ion-item *ngFor="let eventSaturday of eventsSaturday | async" [hidden]="filter(eventSaturday,this.name)">
+          <h3>{{ eventSaturday.name }}</h3>
+          <p>{{ eventSaturday.description }}</p>
         </ion-item>
       </ion-list>
 
