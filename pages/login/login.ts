@@ -29,11 +29,31 @@ export class LoginPage {
       }
       this.displayName = user.displayName;
       let data = {
-        userName: user.displayName
+        userName: user.displayName,
+        userEmail: user.email,
+        userTel: user.phoneNumber,
+        userImg: user.photoURL
       };
+      console.log("user is " + data.userName);
+      // Retrieves path to top Node for attendees
+      var usersRef = firebase.database().ref('Attendees/');
+      // Checks if user Id already exists
+      usersRef.child(user.uid).once('value', function(snapshot) {
+      var exists = (snapshot.val() !== null);
+       if (exists) {
+        console.log('user ' + user.uid + ' exists!');
+      } else {
+        // Writes new user to database only if user id does not exist
+        firebase.database().ref('Attendees/' + user.uid).push(data).then(res => {});
+      }
+    });
+      // Go to home page :)
       this.navCtrl.setRoot(HomePage,data);
     });
   }
+
+
+
 
   ionViewDidLoad() {}
 
