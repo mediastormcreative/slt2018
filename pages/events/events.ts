@@ -24,9 +24,23 @@ export class EventsPage {
   eventsSaturday: FirebaseListObservable<any[]>;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private afDB: AngularFireDatabase, private afAuth: AngularFireAuth, public modalCtrl: ModalController) {
-    this.eventsThursday = afDB.list('/Events/050417');
-    this.eventsFriday = afDB.list('/Events/050517');
-    this.eventsSaturday = afDB.list('/Events/050617');
+    this.eventsThursday = afDB.list('/Events/050417', {
+      query: {
+        orderByChild: 'time'
+      }
+    });
+
+    this.eventsFriday = afDB.list('/Events/050517', {
+      query: {
+        orderByChild: 'time'
+        }
+      });
+
+    this.eventsSaturday = afDB.list('/Events/050617', {
+      query: {
+        orderByChild: 'time'
+      }
+    });
   }
 
   ionViewDidLoad() {
