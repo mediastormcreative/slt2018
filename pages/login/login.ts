@@ -34,7 +34,6 @@ export class LoginPage {
         userTel: user.phoneNumber,
         userImg: user.photoURL
       };
-      console.log("user is " + data.userName);
       // Retrieves path to top Node for attendees
       var usersRef = firebase.database().ref('Attendees/');
       // Checks if user Id already exists
