@@ -1,0 +1,45 @@
+<ion-header>
+  <ion-navbar color='secondary'>
+
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+
+    <ion-title text-center>Attendees</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)='signOut()'>
+        <ion-icon name="log-out"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+
+  <!--<img src="/assets/page-sponsors.jpg" />-->
+
+  <p>Accusantium blanditiis sed beatae et expedita temporibus nobis sed. Quia iste fuga velit saepe quasi et.</p>
+
+  <ion-list>
+    <ion-item *ngFor='let attendee of attendees | async'>
+    <ion-avatar item-start>
+      <img *ngIf="attendee.userImg" [src]= "attendee.userImg" title="{{ attendee.userName }}" />
+      <img *ngIf="attendee.userImg == ''" [src]="assets/default.jpg" />
+    </ion-avatar>
+    <h2>{{ attendee.userName }}</h2>
+  </ion-item>
+</ion-list>
+
+</ion-content>
+
+<ion-footer no-border>
+   <ion-toolbar color='secondary'>
+     <ion-title text-center>SOP Productions 2018</ion-title>
+    <ion-buttons start>
+      <button ion-button icon-only (click)='goToHome()'>
+        <ion-icon name="home"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-footer>
