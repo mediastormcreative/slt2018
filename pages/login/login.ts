@@ -43,7 +43,7 @@ export class LoginPage {
         console.log('user ' + user.uid + ' exists!');
       } else {
         // Writes new user to database only if user id does not exist
-        firebase.database().ref('Attendees/' + user.uid).push(data).then(res => {});
+        firebase.database().ref('Attendees/' + user.uid).set(data).then(res => {});
       }
     });
       // Go to home page :)
